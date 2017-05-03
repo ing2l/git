@@ -1,0 +1,10 @@
+   <!-- lang selector menu -->
+   <ul id="lang_selector">
+      <cms:php>
+      global $accepted_langs, $selected_lang;
+      foreach( $accepted_langs as $lang ){
+         $selected_class = ( $lang==$selected_lang ) ? ' selected' : '';
+         echo'<li class="'.$lang.$selected_class.'"><a href="<cms:show k_admin_link />switch.php?lang='.$lang.'&redirect='.urlencode($_SERVER["REQUEST_URI"]).'"><span>'.strtoupper($lang).'</span></a></li>';
+      }
+      </cms:php>
+   </ul>

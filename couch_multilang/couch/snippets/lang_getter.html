@@ -1,0 +1,16 @@
+   <cms:php>
+   session_start();
+   global $accepted_langs, $selected_lang;
+   
+   // Set your languages here
+   $accepted_langs = array( 'en', 'fr', 'es' );
+   
+   if( isset($_SESSION['lang']) && in_array($_SESSION['lang'], $accepted_langs) ){
+      $selected_lang = $_SESSION['lang'];
+   }
+   else{
+      $selected_lang = 'en'; // Set your default language here
+   }
+   </cms:php>
+   
+   <cms:set my_lang = "<cms:php>global $selected_lang; echo $selected_lang;</cms:php>" 'global' />
